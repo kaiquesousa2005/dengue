@@ -1,36 +1,80 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🦟 Casos da Dengue – Verificador de Sintomas
 
-## Getting Started
+Este é um projeto desenvolvido como parte do curso de Análise e Desenvolvimento de Sistemas na Unifor. O sistema permite que usuários verifiquem sintomas comuns da **dengue**, com autenticação segura, armazenamento em nuvem e design responsivo.
 
-First, run the development server:
+## 🚀 Tecnologias Utilizadas
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **[Next.js](https://nextjs.org/)** – Framework React para aplicações web modernas
+- **[Firebase](https://firebase.google.com/)** – Autenticação e banco de dados em tempo real (Firestore)
+- **[TailwindCSS](https://tailwindcss.com/)** – Estilização rápida e responsiva com utilitários CSS
+- **[Vercel](https://vercel.com/)** – Plataforma de deploy otimizada para Next.js
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## 🔐 Funcionalidade de Login e Cadastro
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- Usuário pode se **cadastrar com e-mail e senha**.
+- Os dados são armazenados com segurança no **Firebase Authentication**.
+- Após o login, o usuário é redirecionado automaticamente para a **tela inicial**.
 
-## Learn More
+> ⚠️ A rota inicial é **protegida** – só pode ser acessada por usuários autenticados.
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🦠 Verificação de Sintomas
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Na tela inicial, o usuário encontra uma lista com **5 sintomas comuns da dengue**. Ele pode marcar os sintomas que estiver sentindo e então clicar para verificar:
 
-## Deploy on Vercel
+- Se o usuário marcar **3 ou mais sintomas**, será exibida uma **mensagem de aconselhamento** indicando a busca por atendimento médico.
+- Todos os sintomas selecionados são **salvos no Firestore** do Firebase, permitindo registro e consulta futura.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 📱 Estilização e Responsividade
+
+A interface foi construída com **TailwindCSS**, garantindo:
+
+- Design limpo e moderno
+- Compatibilidade com dispositivos móveis (responsivo)
+- Acessibilidade e foco na experiência do usuário
+
+---
+
+## ☁️ Deploy
+
+O deploy do projeto foi feito na plataforma **Vercel**, com integração contínua a partir do GitHub. A aplicação está disponível de forma pública e otimizada para produção.
+
+---
+
+## 📁 Estrutura de Pastas (resumo)
+DENGUE
+- app
+|--components
+|-|-Footer.js -Header.js - FormInput.js
+|
+|--firebase
+|-|--hooks
+|---|-useAuth.js
+|-|-auth.js -config.js -firestore.js
+|
+|--login - page.js
+|--register - page.js
+|
+|-global.css
+|-layout.js
+|-page.js
+|-protected-layout.js
+
+---
+
+## 🔒 Requisitos de Segurança
+
+- Autenticação baseada em **e-mail e senha**
+- **Proteção de rotas** para impedir acesso não autorizado à tela inicial
+- Armazenamento seguro dos dados dos usuários e sintomas no Firebase
+
+---
+
+## 🧪 Demonstração
+
+[🔗 Acesse o Projeto na Vercel](https://dengue-ashen.vercel.app)
